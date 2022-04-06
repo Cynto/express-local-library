@@ -23,6 +23,10 @@ BookInstanceSchema.virtual('url').get(function () {
 BookInstanceSchema.virtual('due_back_formatted').get(function () {
   return DateTime.fromJSDate(this.due_back).toFormat('dd LLL yyyy');
 });
+// Virtual for bookinstance's due date for form
+BookInstanceSchema.virtual('due_back_form').get(function () {
+  return DateTime.fromJSDate(this.due_back).toISODate();
+});
 
 //Export model
 module.exports = mongoose.model('BookInstance', BookInstanceSchema);

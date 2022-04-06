@@ -41,6 +41,10 @@ AuthorSchema.virtual('lifespan').get(() => {
 AuthorSchema.virtual('url').get(function () {
   return '/catalog/author/' + this._id;
 });
+// Virtual for author's name;
+AuthorSchema.virtual('name').get(function () {
+  return this.first_name + ' ' + this.family_name;
+});
 
 // Virtual for author's DOB
 AuthorSchema.virtual('date_of_birth_formatted').get(function () {
@@ -54,6 +58,15 @@ AuthorSchema.virtual('date_of_death_formatted').get(function () {
     ? DateTime.fromJSDate(this.date_of_death).toFormat('dd LLL yyyy')
     : '';
 });
+// Virtual for author's DOB for form
+AuthorSchema.virtual('dob').get(function () {
+  return DateTime.fromJSDate(this.date_of_birth).toISODate();
+});
+// Virtual for author's DOD for form
+AuthorSchema.virtual('dod').get(function () {
+  return DateTime.fromJSDate(this.date_of_death).toISODate();
+});
+
 // Virtual for author's lifespan
 AuthorSchema.virtual('lifespan').get(function () {
   if (this.date_of_birth) {

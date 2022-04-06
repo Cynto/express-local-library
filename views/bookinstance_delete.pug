@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #{title}: #{instance.imprint}
+  
+
+  
+    p Do you really want to delete this Author?
+
+    form(method='POST' action='')
+      div.form-group
+        input#instanceid.form-control(type='hidden',name='instanceid', required='true', value=instance._id )
+
+      button.btn.btn-primary(type='submit') Delete instance

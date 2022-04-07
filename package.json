@@ -2,6 +2,9 @@
   "name": "express-local-library",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "16.14.2"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
@@ -9,10 +12,12 @@
   },
   "dependencies": {
     "async": "^3.2.3",
+    "compression": "^1.7.4",
     "cookie-parser": "~1.4.6",
     "debug": "~4.3.4",
     "express": "~4.17.3",
     "express-validator": "^6.14.0",
+    "helmet": "^5.0.2",
     "http-errors": "~2.0.0",
     "luxon": "^2.3.1",
     "mongoose": "^6.2.9",
